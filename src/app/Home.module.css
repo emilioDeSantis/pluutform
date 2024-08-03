@@ -1,0 +1,87 @@
+/* app/Home.module.css */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust based on your header height */
+    padding: 2rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    /* text-transform: uppercase; */
+    position: relative;
+    z-index: 1;
+}
+
+.title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: -1;
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    opacity: 0.4;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.userInfo {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.cta {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.authSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.authButton, .ctaButton {
+    background-color: var(--primary);
+    color: var(--text);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.authButton:hover, .ctaButton:hover {
+    background-color: var(--accent);
+}
+
+.authInfo {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-top: 1rem;
+}

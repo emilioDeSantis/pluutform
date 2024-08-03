@@ -1,0 +1,140 @@
+/* app/components/Commission.module.css */
+.commissionItem {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .commissionItem:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .commissionItem::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .commissionItem:hover::before {
+    opacity: 1;
+  }
+  
+  .commissionItem h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .commissionItem p {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  
+  .endorsementSection {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .endorseButton {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .endorseButton:hover {
+    background-color: var(--primary);
+    color: var(--background);
+    transform: scale(1.1);
+  }
+  
+  .endorsed {
+    background-color: var(--primary);
+    color: var(--background);
+  }
+  
+  .iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .minusIcon, .plusIcon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .endorsed .minusIcon {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .endorsed .plusIcon {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .endorseButton:not(.endorsed) .minusIcon {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .endorseButton:not(.endorsed) .plusIcon {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .animating .iconWrapper {
+    animation: pulse 0.3s ease;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .endorsementCount {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text);
+  }
+  
+  /* Add a glow effect on hover */
+  .endorseButton::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.4) 0%, rgba(var(--primary-rgb), 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .endorseButton:hover::after {
+    opacity: 1;
+  }
